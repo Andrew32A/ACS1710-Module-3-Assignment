@@ -60,8 +60,7 @@ def compliments_results():
     num_compliments = request.args.get("num_compliments")
 
     if wants_compliments== "yes":
-        num_compliments = int(num_compliments)
-        results = random.sample(list_of_compliments, (num_compliments))
+        results = random.sample(list_of_compliments, int(num_compliments))
 
     else:
         results = ""
