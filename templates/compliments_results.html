@@ -6,8 +6,12 @@ Compliments Results
 
 {% block content %}
 
-<!-- Your HTML code goes here! -->
+<h3>Hey {{users_name}}!</h3>
 
-
+{% for item in results %}
+    <ul>
+        <li>{{item}}</li>
+    </ul>
+{% endfor %}
 
 {% endblock %}
