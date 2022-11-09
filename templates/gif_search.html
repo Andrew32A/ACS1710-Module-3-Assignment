@@ -41,11 +41,11 @@ Gif Search
     {% if gifs %}
         {% for item in gifs %}
         <p>
-            <img src="{{item.media_formats.item.url}}">
+            <img src="{{item.media.item.url}}">
         </p>        
         {% endfor %}
     {% endif %}
-    
+
 </section>
 
 {% endblock %}
