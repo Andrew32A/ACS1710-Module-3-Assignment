@@ -146,7 +146,7 @@ def apply_filter(file_path, filter_name):
 @app.route('/image_filter', methods=['GET', 'POST'])
 def image_filter():
     """Filter an image uploaded by the user, using the Pillow library."""
-    filter_types = filter_types_dict.keys()
+    # filter_types = filter_types_dict.keys()
 
     if request.method == 'POST':
         
@@ -210,14 +210,19 @@ def gif_search():
     if request.method == 'POST':
         # TODO: Get the search query & number of GIFs requested by the user, store each as a 
         # variable
+        search_query = request.form.get("search_query")
+        limit = request.form.get("quantity")
 
         response = requests.get(
             TENOR_URL,
             {
                 # TODO: Add in key-value pairs for:
                 # - 'q': the search query
+                "q" : search_query,
                 # - 'key': the API key (defined above)
+                "key" : API_KEY,
                 # - 'limit': the number of GIFs requested
+                "limit" : limit
             })
 
         gifs = json.loads(response.content).get('results')
